@@ -5,10 +5,8 @@ let selectedOperator = "";
 
 
 function display(val){
-    // let screeVal = document.getElementById("calculator-screen").value
     document.getElementById('calculator-screen').style.fontSize='5rem';
     if(document.getElementById("calculator-screen").value.includes(".")){
-        console.log("dot inserted")
         document.getElementById("decimal").setAttribute('disabled', '');
     }
 
@@ -22,7 +20,6 @@ function display(val){
     }
     if(selectedOperator =='%'){
         document.getElementById('calculator-screen').value = mod(preValue);
-
     }
 
     if (selectedOperator ==""){
@@ -30,7 +27,7 @@ function display(val){
         console.log("preValue",preValue);
 
     } else{
-        document.getElementById('calculator-screen').value = ''
+        document.getElementById('calculator-screen').value = '';
         document.getElementById("decimal").removeAttribute('disabled');
 
         document.getElementById("calculator-screen").value +=val
@@ -41,6 +38,9 @@ function display(val){
         console.log("postValue",postValue)
         
     }  
+    if(document.getElementById("calculator-screen").value.includes(".")){
+        document.getElementById("decimal").setAttribute('disabled', '');
+    }
     return val
 }
 
@@ -63,6 +63,8 @@ function clearScreen(){
     preValue = "";
     postValue = "";
     selectedOperator = "";
+    document.getElementById("decimal").removeAttribute('disabled');
+
 
 }
 
