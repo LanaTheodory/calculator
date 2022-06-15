@@ -141,7 +141,7 @@ const operate = (x,operator,y)=>{
         return ("0");
     }
     postValue="";
-    if(result.toString().length >9){
+    if(result.toString().length >9 && result !="To infinity...and beyond!" ){
         result = result.toString().substring(0, 9);
     
     }
