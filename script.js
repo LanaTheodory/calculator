@@ -122,6 +122,9 @@ const mod = (x)=>{
 }
 
 const operate = (x,operator,y)=>{
+    if (x == "To infinity...and beyond!"){
+        return (0);
+    }
     let result=0
     if (operator == '+'){
         result = add(x,y);
@@ -136,7 +139,7 @@ const operate = (x,operator,y)=>{
         result = divide(x,y);
     } 
     // selectedOperator = "";
-    if(result == NaN){
+    if(result.toString == NaN){
         document.getElementById('calculator-screen').style.fontSize='5rem'
         return ("0");
     }
