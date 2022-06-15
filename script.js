@@ -1,9 +1,14 @@
 let preValue = "";
 let postValue = "";
 let selectedOperator = "";
+
+
+
 function display(val){
+    // let screeVal = document.getElementById("calculator-screen").value
     document.getElementById('calculator-screen').style.fontSize='5rem';
     if(document.getElementById("calculator-screen").value.includes(".")){
+        console.log("dot inserted")
         document.getElementById("decimal").setAttribute('disabled', '');
     }
 
@@ -26,6 +31,8 @@ function display(val){
 
     } else{
         document.getElementById('calculator-screen').value = ''
+        document.getElementById("decimal").removeAttribute('disabled');
+
         document.getElementById("calculator-screen").value +=val
         postValue+= document.getElementById("calculator-screen").value
         document.getElementById("calculator-screen").value =postValue
@@ -33,10 +40,8 @@ function display(val){
         console.log("operator",selectedOperator)
         console.log("postValue",postValue)
         
-    }
-    
+    }  
     return val
-
 }
 
 function solve(){
@@ -134,5 +139,11 @@ const operate = (x,operator,y)=>{
         return ("0");
     }
     postValue="";
+    if(result.toString().length >9){
+        result = result.toString().substring(0, 9);
+    
+    }
     return(result);
+    
 }
+
